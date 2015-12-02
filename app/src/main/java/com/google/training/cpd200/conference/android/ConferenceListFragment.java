@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-package com.udacity.devrel.training.conference.android;
-
-import com.udacity.devrel.training.conference.android.utils.ConferenceException;
-import com.udacity.devrel.training.conference.android.utils.ConferenceUtils;
-import com.udacity.devrel.training.conference.android.utils.DecoratedConference;
-import com.udacity.devrel.training.conference.android.utils.Utils;
+package com.google.training.cpd200.conference.android;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -35,6 +30,12 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.training.cpd200.conference.android.utils.ConferenceException;
+import com.google.training.cpd200.conference.android.utils.ConferenceUtils;
+import com.google.training.cpd200.conference.android.utils.DecoratedConference;
+import com.google.training.cpd200.conference.android.utils.Utils;
+import com.training.conference.android.R;
 
 import java.io.IOException;
 import java.util.List;

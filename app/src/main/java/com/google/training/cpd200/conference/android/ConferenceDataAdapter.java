@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.udacity.devrel.training.conference.android;
-
-import com.udacity.devrel.training.conference.android.utils.DecoratedConference;
+package com.google.training.cpd200.conference.android;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -24,7 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.udacity.devrel.training.conference.android.utils.Utils;
+import com.google.training.cpd200.conference.android.utils.DecoratedConference;
+import com.google.training.cpd200.conference.android.utils.Utils;
+import com.training.conference.android.R;
 
 import java.util.List;
 

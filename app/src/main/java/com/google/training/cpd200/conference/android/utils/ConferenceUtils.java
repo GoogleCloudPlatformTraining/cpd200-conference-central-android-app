@@ -13,18 +13,17 @@
  * limitations under the License.
  */
 
-package com.udacity.devrel.training.conference.android.utils;
+package com.google.training.cpd200.conference.android.utils;
 
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.udacity.devrel.training.conference.android.AppConstants;
+import android.content.Context;
+import android.util.Log;
 
 import com.appspot.udacity_extras.conference.model.Conference;
 import com.appspot.udacity_extras.conference.model.ConferenceCollection;
 import com.appspot.udacity_extras.conference.model.Profile;
 import com.appspot.udacity_extras.conference.model.WrappedBoolean;
-
-import android.content.Context;
-import android.util.Log;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.training.cpd200.conference.android.AppConstants;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class ConferenceUtils {
     }
 
     /**
-     * Returns a list of {@link com.udacity.devrel.training.conference.android.utils.DecoratedConference}s.
+     * Returns a list of {@link DecoratedConference}s.
      * This list includes information about what {@link com.appspot.udacity_extras.conference.model.Conference}s
      * user has registered for.
      *

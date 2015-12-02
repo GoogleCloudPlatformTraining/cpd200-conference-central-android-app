@@ -13,14 +13,7 @@
  * limitations under the License.
  */
 
-package com.udacity.devrel.training.conference.android.utils;
-
-import com.google.android.gms.auth.GoogleAuthUtil;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.api.client.util.DateTime;
-import com.udacity.devrel.training.conference.android.R;
-
-import com.appspot.udacity_extras.conference.model.Conference;
+package com.google.training.cpd200.conference.android.utils;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -33,6 +26,12 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+
+import com.appspot.udacity_extras.conference.model.Conference;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.api.client.util.DateTime;
+import com.training.conference.android.R;
 
 import java.util.Calendar;
 
