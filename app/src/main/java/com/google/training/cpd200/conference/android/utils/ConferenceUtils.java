@@ -18,10 +18,10 @@ package com.google.training.cpd200.conference.android.utils;
 import android.content.Context;
 import android.util.Log;
 
-import com.appspot.udacity_extras.conference.model.Conference;
-import com.appspot.udacity_extras.conference.model.ConferenceCollection;
-import com.appspot.udacity_extras.conference.model.Profile;
-import com.appspot.udacity_extras.conference.model.WrappedBoolean;
+import com.appspot.cpd200_extras.conference.model.Conference;
+import com.appspot.cpd200_extras.conference.model.ConferenceCollection;
+import com.appspot.cpd200_extras.conference.model.Profile;
+import com.appspot.cpd200_extras.conference.model.WrappedBoolean;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.training.cpd200.conference.android.AppConstants;
 
@@ -35,7 +35,7 @@ import java.util.List;
 public class ConferenceUtils {
 
     private final static String TAG = "ConferenceUtils";
-    private static com.appspot.udacity_extras.conference.Conference sApiServiceHandler;
+    private static com.appspot.cpd200_extras.conference.Conference sApiServiceHandler;
 
     public static void build(Context context, String email) {
         sApiServiceHandler = buildServiceHandler(context, email);
@@ -43,7 +43,7 @@ public class ConferenceUtils {
 
     /**
      * Returns a list of {@link DecoratedConference}s.
-     * This list includes information about what {@link com.appspot.udacity_extras.conference.model.Conference}s
+     * This list includes information about what {@link com.appspot.cpd200_extras.conference.model.Conference}s
      * user has registered for.
      *
      * @return
@@ -57,7 +57,7 @@ public class ConferenceUtils {
             throw new ConferenceException();
         }
 
-        com.appspot.udacity_extras.conference.Conference.QueryConferences
+        com.appspot.cpd200_extras.conference.Conference.QueryConferences
                 queryConferences = sApiServiceHandler.queryConferences(null);
         ConferenceCollection conferenceCollection = queryConferences.execute();
 
@@ -87,7 +87,7 @@ public class ConferenceUtils {
     }
 
     /**
-     * Registers user for a {@link com.appspot.udacity_extras.conference.model.Conference}
+     * Registers user for a {@link com.appspot.cpd200_extras.conference.model.Conference}
      *
      * @param conference
      * @return
@@ -100,7 +100,7 @@ public class ConferenceUtils {
             throw new ConferenceException();
         }
 
-        com.appspot.udacity_extras.conference.Conference.RegisterForConference
+        com.appspot.cpd200_extras.conference.Conference.RegisterForConference
                 registerForConference = sApiServiceHandler.registerForConference(
                 conference.getWebsafeKey());
         WrappedBoolean result = registerForConference.execute();
@@ -108,7 +108,7 @@ public class ConferenceUtils {
     }
 
     /**
-     * Unregisters user from a {@link com.appspot.udacity_extras.conference.model.Conference}.
+     * Unregisters user from a {@link com.appspot.cpd200_extras.conference.model.Conference}.
      *
      * @param conference
      * @return
@@ -121,7 +121,7 @@ public class ConferenceUtils {
             throw new ConferenceException();
         }
 
-        com.appspot.udacity_extras.conference.Conference.UnregisterFromConference
+        com.appspot.cpd200_extras.conference.Conference.UnregisterFromConference
                 unregisterFromConference = sApiServiceHandler.unregisterFromConference(
                 conference.getWebsafeKey());
         WrappedBoolean result = unregisterFromConference.execute();
@@ -129,7 +129,7 @@ public class ConferenceUtils {
     }
 
     /**
-     * Returns the user {@link com.appspot.udacity_extras.conference.model.Profile}. Can
+     * Returns the user {@link com.appspot.cpd200_extras.conference.model.Profile}. Can
      * be used to find out what conferences user is registered for.
      *
      * @return
@@ -141,26 +141,26 @@ public class ConferenceUtils {
             throw new ConferenceException();
         }
 
-        com.appspot.udacity_extras.conference.Conference.GetProfile getProfile =
+        com.appspot.cpd200_extras.conference.Conference.GetProfile getProfile =
                 sApiServiceHandler.getProfile();
         return getProfile.execute();
     }
 
     /**
-     * Build and returns an instance of {@link com.appspot.udacity_extras.conference.Conference}
+     * Build and returns an instance of {@link com.appspot.cpd200_extras.conference.Conference}
      *
      * @param context
      * @param email
      * @return
      */
-    public static com.appspot.udacity_extras.conference.Conference buildServiceHandler(
+    public static com.appspot.cpd200_extras.conference.Conference buildServiceHandler(
             Context context, String email) {
         GoogleAccountCredential credential = GoogleAccountCredential.usingAudience(
                 context, AppConstants.AUDIENCE);
         credential.setSelectedAccountName(email);
 
-        com.appspot.udacity_extras.conference.Conference.Builder builder
-                = new com.appspot.udacity_extras.conference.Conference.Builder(
+        com.appspot.cpd200_extras.conference.Conference.Builder builder
+                = new com.appspot.cpd200_extras.conference.Conference.Builder(
                 AppConstants.HTTP_TRANSPORT,
                 AppConstants.JSON_FACTORY, credential);
         builder.setApplicationName("conference-central-server");

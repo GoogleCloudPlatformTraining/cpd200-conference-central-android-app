@@ -27,7 +27,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 
-import com.appspot.udacity_extras.conference.model.Conference;
+import com.appspot.cpd200_extras.conference.model.Conference;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.api.client.util.DateTime;
