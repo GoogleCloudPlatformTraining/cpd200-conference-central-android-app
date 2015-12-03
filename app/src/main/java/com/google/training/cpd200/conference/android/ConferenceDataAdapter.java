@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 import com.google.training.cpd200.conference.android.utils.DecoratedConference;
 import com.google.training.cpd200.conference.android.utils.Utils;
-import com.training.conference.android.R;
 
 import java.util.List;
 

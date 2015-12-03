@@ -35,7 +35,6 @@ import com.google.training.cpd200.conference.android.utils.ConferenceException;
 import com.google.training.cpd200.conference.android.utils.ConferenceUtils;
 import com.google.training.cpd200.conference.android.utils.DecoratedConference;
 import com.google.training.cpd200.conference.android.utils.Utils;
-import com.training.conference.android.R;
 
 import java.io.IOException;
 import java.util.List;

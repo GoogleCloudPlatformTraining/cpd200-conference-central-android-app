@@ -33,7 +33,6 @@ import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
 import com.google.training.cpd200.conference.android.utils.ConferenceUtils;
 import com.google.training.cpd200.conference.android.utils.Utils;
-import com.training.conference.android.R;
 
 /**
  * Sample Android application for the Conference Central class for Google Cloud Endpoints.

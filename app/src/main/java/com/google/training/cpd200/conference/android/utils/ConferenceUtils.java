@@ -57,7 +57,7 @@ public class ConferenceUtils {
             throw new ConferenceException();
         }
 
-        com.appspot.cpd200_extras.Conference.QueryConferences
+        com.appspot.cpd200_extras.conference.Conference.QueryConferences
                 queryConferences = sApiServiceHandler.queryConferences(null);
         ModelsConferenceForms conferenceCollection = queryConferences.execute();
 
