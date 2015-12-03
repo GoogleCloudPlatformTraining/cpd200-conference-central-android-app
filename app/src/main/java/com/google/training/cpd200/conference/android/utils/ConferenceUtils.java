@@ -18,12 +18,12 @@ package com.google.training.cpd200.conference.android.utils;
 import android.content.Context;
 import android.util.Log;
 
-import com.appspot.cpd200_extras.conference.model.Conference;
-import com.appspot.cpd200_extras.conference.model.ConferenceCollection;
-import com.appspot.cpd200_extras.conference.model.Profile;
-import com.appspot.cpd200_extras.conference.model.WrappedBoolean;
+import com.appspot.cpd200_extras.conference.model.ModelsBooleanMessage;
+import com.appspot.cpd200_extras.conference.model.ModelsConferenceForm;
+import com.appspot.cpd200_extras.conference.model.ModelsConferenceForms;
+import com.appspot.cpd200_extras.conference.model.ModelsProfileForm;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.training.cpd200.conference.android.AppConstants;
+import com.google.training.cpd200_extras.conference.android.AppConstants;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class ConferenceUtils {
 
     /**
      * Returns a list of {@link DecoratedConference}s.
-     * This list includes information about what {@link com.appspot.cpd200_extras.conference.model.Conference}s
+     * This list includes information about what {@link com.appspot.cpd200_extras.conference.model.ModelsConferenceForm}s
      * user has registered for.
      *
      * @return
@@ -57,18 +57,18 @@ public class ConferenceUtils {
             throw new ConferenceException();
         }
 
-        com.appspot.cpd200_extras.conference.Conference.QueryConferences
+        com.appspot.cpd200_extras.Conference.QueryConferences
                 queryConferences = sApiServiceHandler.queryConferences(null);
-        ConferenceCollection conferenceCollection = queryConferences.execute();
+        ModelsConferenceForms conferenceCollection = queryConferences.execute();
 
         if (conferenceCollection != null && conferenceCollection.getItems() != null) {
-            List<Conference> conferences = conferenceCollection.getItems();
+            List<ModelsConferenceForm> conferences = conferenceCollection.getItems();
             List<DecoratedConference> decoratedList = null;
             if (null == conferences || conferences.isEmpty()) {
                 return decoratedList;
             }
             decoratedList = new ArrayList<DecoratedConference>();
-            Profile profile = getProfile();
+            ModelsProfileForm profile = getProfile();
             List<String> registeredConfKeys = null;
             if (null != profile) {
                 registeredConfKeys = profile.getConferenceKeysToAttend();
@@ -76,7 +76,7 @@ public class ConferenceUtils {
             if (null == registeredConfKeys) {
                 registeredConfKeys = new ArrayList<String>();
             }
-            for (Conference conference : conferences) {
+            for (ModelsConferenceForm conference : conferences) {
                 DecoratedConference decorated = new DecoratedConference(conference,
                         registeredConfKeys.contains(conference.getWebsafeKey()));
                 decoratedList.add(decorated);
@@ -87,13 +87,13 @@ public class ConferenceUtils {
     }
 
     /**
-     * Registers user for a {@link com.appspot.cpd200_extras.conference.model.Conference}
+     * Registers user for a {@link com.appspot.cpd200_extras.conference.model.ModelsConferenceForm}
      *
      * @param conference
      * @return
      * @throws ConferenceException
      */
-    public static boolean registerForConference(Conference conference)
+    public static boolean registerForConference(ModelsConferenceForm conference)
             throws ConferenceException, IOException {
         if (null == sApiServiceHandler) {
             Log.e(TAG, "registerForConference(): no service handler was built");
@@ -103,39 +103,41 @@ public class ConferenceUtils {
         com.appspot.cpd200_extras.conference.Conference.RegisterForConference
                 registerForConference = sApiServiceHandler.registerForConference(
                 conference.getWebsafeKey());
-        WrappedBoolean result = registerForConference.execute();
-        return result.getResult();
+        ModelsBooleanMessage result = registerForConference.execute();
+        return result.getData();
     }
 
     /**
-     * Unregisters user from a {@link com.appspot.cpd200_extras.conference.model.Conference}.
+     * Unregisters user from a {@link com.appspot.cpd200_extras.conference.model.ModelsConferenceForm}.
      *
      * @param conference
      * @return
      * @throws ConferenceException
      */
-    public static boolean unregisterFromConference(Conference conference)
+    public static boolean unregisterFromConference(ModelsConferenceForm conference)
             throws ConferenceException, IOException {
         if (null == sApiServiceHandler) {
             Log.e(TAG, "unregisterFromConference(): no service handler was built");
             throw new ConferenceException();
         }
 
-        com.appspot.cpd200_extras.conference.Conference.UnregisterFromConference
+        /*com.appspot.cpd200_extras.conference.Conference.UnregisterFromConference
                 unregisterFromConference = sApiServiceHandler.unregisterFromConference(
                 conference.getWebsafeKey());
-        WrappedBoolean result = unregisterFromConference.execute();
-        return result.getResult();
+        */
+        //ModelsBooleanMessage result = unregisterFromConference.execute();
+        //return result.getResult();
+        return false;
     }
 
     /**
-     * Returns the user {@link com.appspot.cpd200_extras.conference.model.Profile}. Can
+     * Returns the user {@link com.appspot.cpd200_extras.conference.model.ModelsProfileForm}. Can
      * be used to find out what conferences user is registered for.
      *
      * @return
      * @throws ConferenceException
      */
-    public static Profile getProfile() throws ConferenceException, IOException {
+    public static ModelsProfileForm getProfile() throws ConferenceException, IOException {
         if (null == sApiServiceHandler) {
             Log.e(TAG, "getProfile(): no service handler was built");
             throw new ConferenceException();

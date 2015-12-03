@@ -15,29 +15,31 @@
 
 package com.google.training.cpd200.conference.android.utils;
 
-import com.appspot.cpd200_extras.conference.model.Conference;
+
+import com.appspot.cpd200_extras.conference.Conference;
+import com.appspot.cpd200_extras.conference.model.ModelsConferenceForm;
 
 /**
- * A wrapper around the {@link com.appspot.cpd200_extras.conference.model.Conference}
+ * A wrapper around the {@link com.appspot.cpd200_extras.conference.model.ModelsConferenceForm}
  * to enable adding additional fields and operations.
  */
 public class DecoratedConference {
 
-    private Conference mConference;
+    private ModelsConferenceForm mConference;
     private boolean mRegistered;
 
-    public DecoratedConference(Conference conference, boolean registered) {
+    public DecoratedConference(ModelsConferenceForm conference, boolean registered) {
         mConference = conference;
 
         /* keeps the status of user's attendance to this conference */
         mRegistered = registered;
     }
 
-    public Conference getConference() {
+    public ModelsConferenceForm getConference() {
         return mConference;
     }
 
-    public void setConference(Conference conference) {
+    public void setConference(ModelsConferenceForm conference) {
         mConference = conference;
     }
 

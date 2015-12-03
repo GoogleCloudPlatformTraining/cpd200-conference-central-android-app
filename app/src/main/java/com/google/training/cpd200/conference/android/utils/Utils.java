@@ -27,11 +27,12 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 
-import com.appspot.cpd200_extras.conference.model.Conference;
+import com.appspot.cpd200_extras.conference.model.ModelsConferenceForm;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.api.client.util.DateTime;
-import com.training.conference.android.R;
+import com.google.training.conference_central_1084.conference.android.R;
+
 
 import java.util.Calendar;
 
@@ -102,7 +103,7 @@ public class Utils {
      * @param conference
      * @return
      */
-    public static String getConferenceCard(Context context, Conference conference) {
+    public static String getConferenceCard(Context context, ModelsConferenceForm conference) {
         StringBuffer sb = new StringBuffer();
         if (!TextUtils.isEmpty(conference.getDescription())) {
             sb.append(conference.getDescription() + "\n");
@@ -135,13 +136,13 @@ public class Utils {
      * @param conference
      * @return
      */
-    public static String getConferenceDate(Context context, Conference conference) {
+    public static String getConferenceDate(Context context, ModelsConferenceForm conference) {
         StringBuffer sb = new StringBuffer();
         if (null != conference.getStartDate() && null != conference.getEndDate()) {
-            sb.append(getFormattedDateRange(context, conference.getStartDate(),
-                    conference.getEndDate()));
+            sb.append(getFormattedDateRange(context, DateTime.parseRfc3339(conference.getStartDate()),
+                    DateTime.parseRfc3339(conference.getEndDate())));
         } else if (null != conference.getStartDate()) {
-            sb.append(getFormattedDate(context, conference.getStartDate()));
+            sb.append(getFormattedDate(context, DateTime.parseRfc3339(conference.getStartDate())));
         }
         return sb.toString();
     }
