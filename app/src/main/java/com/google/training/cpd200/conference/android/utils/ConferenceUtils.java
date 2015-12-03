@@ -23,7 +23,7 @@ import com.appspot.cpd200_extras.conference.model.ModelsConferenceForm;
 import com.appspot.cpd200_extras.conference.model.ModelsConferenceForms;
 import com.appspot.cpd200_extras.conference.model.ModelsProfileForm;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.training.cpd200_extras.conference.android.AppConstants;
+import com.google.training.cpd200.conference.android.AppConstants;
 
 import java.io.IOException;
 import java.util.ArrayList;

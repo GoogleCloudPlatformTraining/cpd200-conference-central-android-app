@@ -31,7 +31,7 @@ import com.appspot.cpd200_extras.conference.model.ModelsConferenceForm;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.api.client.util.DateTime;
-import com.google.training.conference_central_1084.conference.android.R;
+import com.google.training.cpd200.conference.android.R;
 
 
 import java.util.Calendar;
